@@ -176,35 +176,6 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.sass");
-var _para$innerText;
-var para = document.querySelector(".para");
-var result = para === null || para === void 0 ? void 0 : (_para$innerText = para.innerText) === null || _para$innerText === void 0 ? void 0 : _para$innerText.match(/[^\.!\?]+[\.!\?]+/g);
-para.innerHTML = result === null || result === void 0 ? void 0 : result.map(function (sentence) {
-  return "<span class=\"sentence\">".concat(sentence, "</span>");
-}).join("");
-var speaker = document.querySelector(".speaker");
-var characterWidth = 128;
-var focus = document.querySelector(".focus");
-console.log(result);
-var dialog = document.querySelector(".dialog");
-var _dialog$getBoundingCl = dialog.getBoundingClientRect(),
-  left = _dialog$getBoundingCl.left,
-  width = _dialog$getBoundingCl.width;
-speaker.style.left = left - characterWidth + "px";
-focus.style.width = width + "px";
-var focusBox = focus.getBoundingClientRect();
-var sum = "";
-dialog.addEventListener("wheel", function () {
-  document.querySelectorAll(".sentence").forEach(function (sentence) {
-    var rect = sentence.getBoundingClientRect();
-    if (rect.bottom > focusBox.top && rect.right > focusBox.left && rect.top < focusBox.bottom && rect.left < focusBox.right) {
-      sum = sentence === null || sentence === void 0 ? void 0 : sentence.innerText;
-      focus.innerText = sum;
-    } else {
-      sum = "";
-    }
-  });
-});
 },{"./styles.sass":"src/styles.sass"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
